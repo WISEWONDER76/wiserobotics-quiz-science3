@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Science Quest: Systems, Ecosystems & Forces! ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #9C27B0; /* Deep Purple */
+            --secondary-color: #FFEE58; /* Bright Yellow */
+            --accent-color: #673AB7; /* Darker Purple */
+            --text-color: #333;
+            --background-color: #F3E5F5; /* Light Purple Background */
+            --card-background: #FFFFFF;
+            --button-hover: #5E35B1; /* Even Darker Purple */
+            --button-shadow: rgba(0, 0, 0, 0.2);
+            --correct-glow: #4CAF50; /* Green for Correct */
+            --incorrect-glow: #F44336; /* Red for Incorrect */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, var(--background-color) 0%, #D1C4E9 100%);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .quiz-container {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 30px var(--button-shadow);
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+            transform-origin: center;
+            border: 6px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Fun floating shapes */
+        .shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatAndFade 15s infinite ease-in-out;
+        }
+        .shape.s1 { width: 50px; height: 50px; top: 10%; left: 5%; animation-delay: 0s; background-color: rgba(156, 39, 176, 0.2); }
+        .shape.s2 { width: 70px; height: 70px; top: 30%; right: 10%; animation-delay: 3s; background-color: rgba(255, 235, 59, 0.2); }
+        .shape.s3 { width: 40px; height: 40px; bottom: 20%; left: 15%; animation-delay: 6s; background-color: rgba(103, 58, 183, 0.2); }
+        .shape.s4 { width: 60px; height: 60px; top: 20%; left: 40%; animation-delay: 9s; background-color: rgba(76, 175, 80, 0.2); }
+
+        @keyframes floatAndFade {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+        }
+
+        h1 {
+            font-family: 'Bangers', cursive;
+            color: var(--primary-color);
+            font-size: 4em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-family: 'Bangers', cursive;
+            color: var(--accent-color);
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        .intro, .question-container, .results {
+            animation: fadeInScale 0.8s forwards;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .input-group {
+            margin-top: 25px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group label {
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .input-group input {
+            padding: 16px;
+            font-size: 1.3em;
+            border: 3px solid #ddd;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(103, 58, 183, 0.6);
+        }
+
+        .quiz-button {
+            padding: 20px 40px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #fff;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            margin: 10px;
+            box-shadow: 0 8px 15px var(--button-shadow);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+        
+        .quiz-button:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease-out;
+        }
+
+        .quiz-button:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .quiz-button:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .question-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2em;
+            margin-bottom: 40px;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: #616161;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 4px dashed var(--primary-color);
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .option-button {
+            background-color: #F8F4FF; /* Lightest Purple for options */
+            color: var(--text-color);
+            border: 3px solid var(--primary-color);
+            font-size: 1.3em;
+            padding: 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .option-button:hover {
+            background-color: #E1BEE7; /* Hover effect */
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-button.correct {
+            background-color: var(--correct-glow);
+            border-color: var(--correct-glow);
+            color: #fff;
+            animation: pulseCorrect 0.7s forwards;
+            box-shadow: 0 0 20px var(--correct-glow);
+        }
+
+        .option-button.incorrect {
+            background-color: var(--incorrect-glow);
+            border-color: var(--incorrect-glow);
+            color: #fff;
+            animation: shake 0.5s;
+            box-shadow: 0 0 20px var(--incorrect-glow);
+        }
+        
+        @keyframes pulseCorrect {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 25px rgba(76, 175, 80, 0); }
+            100% { transform: scale(1); }
+        }
+        
+        .skip-button {
+            background-color: #9E9E9E; /* Grey */
+            color: #fff;
+        }
+        
+        .skip-button:hover {
+            background-color: #616161;
+        }
+        
+        .result-score {
+            font-family: 'Bangers', cursive;
+            font-size: 5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+            animation: bounceIn 1.5s;
+        }
+        
+        .result-comment {
+            font-size: 2em;
+            color: var(--text-color);
+            font-weight: bold;
+            min-height: 80px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        @keyframes bounceIn {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-50px); }
+            60% { transform: translateY(-25px); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-20px); }
+            40%, 80% { transform: translateX(20px); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .question-text {
+                font-size: 1.6em;
+                min-height: 120px;
+            }
+            .option-button, .quiz-button {
+                font-size: 1.1em;
+                padding: 15px 25px;
+            }
+            .result-score {
+                font-size: 4em;
+            }
+            .result-comment {
+                font-size: 1.6em;
+            }
+            .quiz-container {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .question-text {
+                font-size: 1.2em;
+                min-height: 100px;
+            }
+            .option-button, .quiz-button {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+            .result-score {
+                font-size: 3em;
+            }
+            .result-comment {
+                font-size: 1.2em;
+            }
+            .quiz-container {
+                padding: 15px;
+            }
+            .input-group input {
+                padding: 12px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <!-- Fun floating shapes -->
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+
+        <!-- Intro Section -->
+        <div class="intro" id="intro-section">
+            <h1>🚀 Science Quest: Systems, Ecosystems & Forces! ✨</h1>
+            <h2>Let's explore amazing systems and energies around us!</h2>
+            <div class="input-group">
+                <label for="nameInput">What's your brilliant name, Young Scientist?</label>
+                <input type="text" id="nameInput" placeholder="Your Genius Name">
+            </div>
+            <button class="quiz-button" onclick="startQuiz()">🔬 Embark on My Quest!</button>
+        </div>
+
+        <!-- Question Section -->
+        <div class="question-container hidden" id="question-section">
+            <h2 id="question-number">Question 1</h2>
+            <div class="question-text" id="question-text"></div>
+            <div class="options" id="options-container"></div>
+            <button class="quiz-button skip-button" onclick="skipQuestion()">⏩ Skip Question</button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results hidden" id="results-section">
+            <h2>🎉 Quest Complete! 🎉</h2>
+            <p>Your Score:</p>
+            <div class="result-score" id="final-score"></div>
+            <p class="result-comment" id="score-comment"></p>
+            <button class="quiz-button" onclick="window.location.reload()">🔄 Start Another Quest!</button>
+        </div>
+    </div>
+
+    <script>
+        // Helper function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+
+        const quizData = {
+            "questions": [
+                {
+                    "question": "When you eat a tasty mango, which organ in your digestive system first helps to break it into smaller pieces?",
+                    "answerOptions": [
+                        {"text": "The stomach.", "isCorrect": false},
+                        {"text": "The mouth (with teeth and saliva).", "isCorrect": true},
+                        {"text": "The small intestine.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "After food leaves your mouth, it travels down a tube to your stomach. What is this tube called?",
+                    "answerOptions": [
+                        {"text": "The windpipe.", "isCorrect": false},
+                        {"text": "The esophagus.", "isCorrect": true},
+                        {"text": "The large intestine.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In the solar system, what is the largest star that all planets orbit around?",
+                    "answerOptions": [
+                        {"text": "The Moon.", "isCorrect": false},
+                        {"text": "The Sun.", "isCorrect": true},
+                        {"text": "Jupiter.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Imagine a pond with fish, frogs, plants, and water. What is this natural community called?",
+                    "answerOptions": [
+                        {"text": "A desert.", "isCorrect": false},
+                        {"text": "An ecosystem.", "isCorrect": true},
+                        {"text": "A city.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you boil water, what happens to its state as it gets hotter and hotter?",
+                    "answerOptions": [
+                        {"text": "It turns into ice.", "isCorrect": false},
+                        {"text": "It changes from liquid to gas (steam).", "isCorrect": true},
+                        {"text": "It becomes thicker.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Why is it important to switch off lights when you leave a room?",
+                    "answerOptions": [
+                        {"text": "To make the room dark.", "isCorrect": false},
+                        {"text": "To conserve electricity and save energy.", "isCorrect": true},
+                        {"text": "To make the light bulb last longer.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which basic electronic component provides power to a device, like a flashlight?",
+                    "answerOptions": [
+                        {"text": "A wire.", "isCorrect": false},
+                        {"text": "A battery.", "isCorrect": true},
+                        {"text": "A switch.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you stretch a rubber band, what type of force are you applying?",
+                    "answerOptions": [
+                        {"text": "Compressional force.", "isCorrect": false},
+                        {"text": "Elastic force.", "isCorrect": true},
+                        {"text": "Pushing force.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which planet is known as the 'Red Planet' and is next after Earth in the solar system?",
+                    "answerOptions": [
+                        {"text": "Venus.", "isCorrect": false},
+                        {"text": "Mars.", "isCorrect": true},
+                        {"text": "Jupiter.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In an ecosystem, what do plants do to help animals survive?",
+                    "answerOptions": [
+                        {"text": "They eat the animals.", "isCorrect": false},
+                        {"text": "They provide food and oxygen.", "isCorrect": true},
+                        {"text": "They hide from animals.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When ice cream melts on a hot day, what change of state is occurring?",
+                    "answerOptions": [
+                        {"text": "Solid to gas.", "isCorrect": false},
+                        {"text": "Solid to liquid.", "isCorrect": true},
+                        {"text": "Liquid to solid.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the primary function of the stomach in the digestive system?",
+                    "answerOptions": [
+                        {"text": "To absorb water.", "isCorrect": false},
+                        {"text": "To mix food with strong digestive juices to break it down further.", "isCorrect": true},
+                        {"text": "To make food taste good.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Why is the Sun so important to Earth's ecosystem?",
+                    "answerOptions": [
+                        {"text": "It makes the moon shine.", "isCorrect": false},
+                        {"text": "It provides light and heat, which are essential for life and the water cycle.", "isCorrect": true},
+                        {"text": "It controls the wind.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you squeeze a sponge and water comes out, what type of force are you using?",
+                    "answerOptions": [
+                        {"text": "Elastic force.", "isCorrect": false},
+                        {"text": "Compressional force.", "isCorrect": true},
+                        {"text": "Pulling force.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which part of the digestive system absorbs most of the useful nutrients from digested food into the bloodstream?",
+                    "answerOptions": [
+                        {"text": "The large intestine.", "isCorrect": false},
+                        {"text": "The small intestine.", "isCorrect": true},
+                        {"text": "The esophagus.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the correct order of the first four planets from the Sun?",
+                    "answerOptions": [
+                        {"text": "Earth, Mars, Venus, Mercury.", "isCorrect": false},
+                        {"text": "Mercury, Venus, Earth, Mars.", "isCorrect": true},
+                        {"text": "Mars, Earth, Venus, Mercury.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In a forest ecosystem, what would happen if all the trees were cut down?",
+                    "answerOptions": [
+                        {"text": "Animals would have more space.", "isCorrect": false},
+                        {"text": "Many animals would lose their homes and food, disrupting the ecosystem.", "isCorrect": true},
+                        {"text": "The air would become cleaner.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When water freezes in a bottle and breaks it, what change of state is happening to the water?",
+                    "answerOptions": [
+                        {"text": "Liquid to gas.", "isCorrect": false},
+                        {"text": "Liquid to solid.", "isCorrect": true},
+                        {"text": "Solid to liquid.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which of these is a good way to save electricity at home?",
+                    "answerOptions": [
+                        {"text": "Leaving the TV on all day.", "isCorrect": false},
+                        {"text": "Unplugging chargers when not in use.", "isCorrect": true},
+                        {"text": "Opening the fridge door for a long time.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "A simple circuit uses wires to connect components. What is the main function of a wire in an electronic circuit?",
+                    "answerOptions": [
+                        {"text": "To store electricity.", "isCorrect": false},
+                        {"text": "To conduct (carry) electricity from one point to another.", "isCorrect": true},
+                        {"text": "To block electricity.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you push a toy car, what type of force makes it move?",
+                    "answerOptions": [
+                        {"text": "Elastic force.", "isCorrect": false},
+                        {"text": "Pushing force (a type of mechanical force).", "isCorrect": true},
+                        {"text": "Compressional force.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What happens to the food that is not absorbed in the small intestine?",
+                    "answerOptions": [
+                        {"text": "It goes back to the mouth.", "isCorrect": false},
+                        {"text": "It moves to the large intestine to absorb water and form waste.", "isCorrect": true},
+                        {"text": "It disappears.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which planet is closest to the Sun?",
+                    "answerOptions": [
+                        {"text": "Earth.", "isCorrect": false},
+                        {"text": "Mercury.", "isCorrect": true},
+                        {"text": "Venus.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In a food chain, what role does a grasshopper play if it eats grass?",
+                    "answerOptions": [
+                        {"text": "Producer.", "isCorrect": false},
+                        {"text": "Consumer.", "isCorrect": true},
+                        {"text": "Decomposer.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you leave a wet cloth in the sun, it dries. This is an example of heat causing...",
+                    "answerOptions": [
+                        {"text": "Freezing.", "isCorrect": false},
+                        {"text": "Evaporation (liquid to gas).", "isCorrect": true},
+                        {"text": "Melting.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which of these devices uses electricity to produce light?",
+                    "answerOptions": [
+                        {"text": "A wooden chair.", "isCorrect": false},
+                        {"text": "A light bulb.", "isCorrect": true},
+                        {"text": "A book.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the function of a switch in an electronic circuit?",
+                    "answerOptions": [
+                        {"text": "To make a noise.", "isCorrect": false},
+                        {"text": "To open or close the circuit, controlling the flow of electricity.", "isCorrect": true},
+                        {"text": "To make the wires shiny.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you jump on a trampoline, it stretches down and then pushes you up. This is an example of what kind of force?",
+                    "answerOptions": [
+                        {"text": "Compressional force.", "isCorrect": false},
+                        {"text": "Elastic force.", "isCorrect": true},
+                        {"text": "Gravity.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the last part of the digestive system where solid waste leaves the body?",
+                    "answerOptions": [
+                        {"text": "The small intestine.", "isCorrect": false},
+                        {"text": "The anus.", "isCorrect": true},
+                        {"text": "The stomach.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which planet is known for its beautiful rings?",
+                    "answerOptions": [
+                        {"text": "Jupiter.", "isCorrect": false},
+                        {"text": "Saturn.", "isCorrect": true},
+                        {"text": "Neptune.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In an ecosystem, what are organisms like fungi and bacteria that break down dead plants and animals called?",
+                    "answerOptions": [
+                        {"text": "Producers.", "isCorrect": false},
+                        {"text": "Consumers.", "isCorrect": false},
+                        {"text": "Decomposers.", "isCorrect": true}
+                    ]
+                },
+                {
+                    "question": "If you place a chocolate bar in a hot oven, it will turn into liquid. This change is caused by...",
+                    "answerOptions": [
+                        {"text": "Freezing.", "isCorrect": false},
+                        {"text": "Heat (melting).", "isCorrect": true},
+                        {"text": "Evaporation.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "How can you help conserve electricity at school?",
+                    "answerOptions": [
+                        {"text": "Leaving computers on overnight.", "isCorrect": false},
+                        {"text": "Turning off lights when leaving the classroom.", "isCorrect": true},
+                        {"text": "Drawing on the walls.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "A small light-emitting diode (LED) lights up when electricity passes through it. The LED is an example of what in electronics?",
+                    "answerOptions": [
+                        {"text": "A power source.", "isCorrect": false},
+                        {"text": "An output component (produces light).", "isCorrect": true},
+                        {"text": "A control component.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you sit on a soft cushion, it gets flatter. This is an example of what kind of force?",
+                    "answerOptions": [
+                        {"text": "Elastic force.", "isCorrect": false},
+                        {"text": "Compressional force.", "isCorrect": true},
+                        {"text": "Pulling force.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the function of saliva in the mouth during digestion?",
+                    "answerOptions": [
+                        {"text": "To make food hard.", "isCorrect": false},
+                        {"text": "To moisten food and begin breaking down starches.", "isCorrect": true},
+                        {"text": "To absorb nutrients.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which planet is known as the 'Giant Red Spot' and is the largest planet in our solar system?",
+                    "answerOptions": [
+                        {"text": "Saturn.", "isCorrect": false},
+                        {"text": "Jupiter.", "isCorrect": true},
+                        {"text": "Uranus.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In an ecosystem, how do animals like bees help plants?",
+                    "answerOptions": [
+                        {"text": "By eating the plants.", "isCorrect": false},
+                        {"text": "By pollinating them, helping them make seeds.", "isCorrect": true},
+                        {"text": "By building nests on them.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you leave a glass of water outside on a very cold night, and it turns into ice, this is a change from...",
+                    "answerOptions": [
+                        {"text": "Gas to liquid.", "isCorrect": false},
+                        {"text": "Liquid to solid (freezing).", "isCorrect": true},
+                        {"text": "Solid to gas.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which of these uses a lot of electricity and should be used wisely?",
+                    "answerOptions": [
+                        {"text": "A hand fan.", "isCorrect": false},
+                        {"text": "An air conditioner.", "isCorrect": true},
+                        {"text": "A book.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "A small resistor in an electronic circuit changes electrical energy into heat. What is its main function?",
+                    "answerOptions": [
+                        {"text": "To amplify signals.", "isCorrect": false},
+                        {"text": "To limit the flow of current.", "isCorrect": true},
+                        {"text": "To generate light.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you bounce a ball, the force that makes it come back to your hand is an example of a force that makes things...",
+                    "answerOptions": [
+                        {"text": "Melt.", "isCorrect": false},
+                        {"text": "Move and change direction.", "isCorrect": true},
+                        {"text": "Freeze.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What happens in the large intestine?",
+                    "answerOptions": [
+                        {"text": "Most nutrients are absorbed.", "isCorrect": false},
+                        {"text": "Water is absorbed from undigested food, forming solid waste.", "isCorrect": true},
+                        {"text": "Food is chewed.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which planet is known for its beautiful blue color due to methane gas in its atmosphere?",
+                    "answerOptions": [
+                        {"text": "Mars.", "isCorrect": false},
+                        {"text": "Neptune.", "isCorrect": true},
+                        {"text": "Jupiter.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In an ecosystem, what do you call the green plants that make their own food?",
+                    "answerOptions": [
+                        {"text": "Consumers.", "isCorrect": false},
+                        {"text": "Producers.", "isCorrect": true},
+                        {"text": "Decomposers.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When a hot substance cools down, its particles lose energy, and it might change from gas to liquid, or liquid to solid. This is called...",
+                    "answerOptions": [
+                        {"text": "Evaporation.", "isCorrect": false},
+                        {"text": "Cooling or solidification.", "isCorrect": true},
+                        {"text": "Boiling.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the main role of the Sun in the solar system?",
+                    "answerOptions": [
+                        {"text": "To make the Earth spin.", "isCorrect": false},
+                        {"text": "To provide light and heat, and its gravity keeps planets in orbit.", "isCorrect": true},
+                        {"text": "To control the Moon.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which part of the digestive system is a long, muscular tube that connects the mouth to the stomach?",
+                    "answerOptions": [
+                        {"text": "The windpipe.", "isCorrect": false},
+                        {"text": "The esophagus.", "isCorrect": true},
+                        {"text": "The small intestine.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you are designing a simple electronic device, what component is used to turn it on or off?",
+                    "answerOptions": [
+                        {"text": "A battery.", "isCorrect": false},
+                        {"text": "A switch.", "isCorrect": true},
+                        {"text": "A wire.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you sit on a spring, it compresses. This is an example of...",
+                    "answerOptions": [
+                        {"text": "Elastic force.", "isCorrect": false},
+                        {"text": "Compressional force.", "isCorrect": true},
+                        {"text": "Pulling force.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "The process of food being chewed in the mouth and mixed with saliva is called...",
+                    "answerOptions": [
+                        {"text": "Swallowing.", "isCorrect": false},
+                        {"text": "Digestion (starting in the mouth).", "isCorrect": true},
+                        {"text": "Absorption.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which planet is closest to Earth and is sometimes called Earth's 'sister planet'?",
+                    "answerOptions": [
+                        {"text": "Mars.", "isCorrect": false},
+                        {"text": "Venus.", "isCorrect": true},
+                        {"text": "Mercury.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In an ecosystem, if animals eat plants, what are these animals called?",
+                    "answerOptions": [
+                        {"text": "Producers.", "isCorrect": false},
+                        {"text": "Consumers.", "isCorrect": true},
+                        {"text": "Decomposers.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you hold a metal spoon over a flame, it gets hot. This shows that heat can...",
+                    "answerOptions": [
+                        {"text": "Make things freeze.", "isCorrect": false},
+                        {"text": "Transfer through materials (conduction).", "isCorrect": true},
+                        {"text": "Make things disappear.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Why is it important to turn off electronic devices like TVs and video game consoles when you're not using them?",
+                    "answerOptions": [
+                        {"text": "To make them quiet.", "isCorrect": false},
+                        {"text": "To save electricity and prolong their lifespan.", "isCorrect": true},
+                        {"text": "To keep them warm.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the function of a small motor in an electronic toy?",
+                    "answerOptions": [
+                        {"text": "To make it smell good.", "isCorrect": false},
+                        {"text": "To convert electrical energy into movement.", "isCorrect": true},
+                        {"text": "To make a loud noise.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you pull a wagon, what type of force are you applying?",
+                    "answerOptions": [
+                        {"text": "Compressional force.", "isCorrect": false},
+                        {"text": "Pulling force (a type of mechanical force).", "isCorrect": true},
+                        {"text": "Elastic force.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What happens to indigestible waste in the digestive system?",
+                    "answerOptions": [
+                        {"text": "It is absorbed into the blood.", "isCorrect": false},
+                        {"text": "It is stored temporarily in the rectum before being expelled from the body.", "isCorrect": true},
+                        {"text": "It stays in the stomach.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Besides the Sun, which other celestial bodies have gravity that pulls planets and other objects towards them?",
+                    "answerOptions": [
+                        {"text": "Only asteroids.", "isCorrect": false},
+                        {"text": "Planets themselves have gravity.", "isCorrect": true},
+                        {"text": "Only empty space.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "In an ecosystem, how does a lion depend on other animals?",
+                    "answerOptions": [
+                        {"text": "For shelter.", "isCorrect": false},
+                        {"text": "For food (by eating other animals).", "isCorrect": true},
+                        {"text": "For friendship.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you put a hot metal object into cold water, what happens to the heat energy?",
+                    "answerOptions": [
+                        {"text": "It disappears.", "isCorrect": false},
+                        {"text": "It transfers from the hot object to the cold water.", "isCorrect": true},
+                        {"text": "It stays in the hot object.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Why is it dangerous to play with electrical sockets or broken wires?",
+                    "answerOptions": [
+                        {"text": "It can make the lights flicker.", "isCorrect": false},
+                        {"text": "It can cause electric shock, which is very harmful.", "isCorrect": true},
+                        {"text": "It makes the house smell funny.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which basic electronic component allows electricity to flow in only one direction?",
+                    "answerOptions": [
+                        {"text": "A capacitor.", "isCorrect": false},
+                        {"text": "A diode.", "isCorrect": true},
+                        {"text": "A resistor.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you stretch a spring and then let it go, it returns to its original shape. This shows the property of...",
+                    "answerOptions": [
+                        {"text": "Plasticity.", "isCorrect": false},
+                        {"text": "Elasticity.", "isCorrect": true},
+                        {"text": "Brittleness.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "The journey of food through the body, from mouth to anus, is called the...",
+                    "answerOptions": [
+                        {"text": "Breathing process.", "isCorrect": false},
+                        {"text": "Digestive process.", "isCorrect": true},
+                        {"text": "Circulatory process.", "isCorrect": false}
+                    ]
+                }
+            ]
+        };
+
+        // Shuffle the answer options for each question when the quiz data is loaded
+        quizData.questions.forEach(question => {
+            shuffleArray(question.answerOptions);
+        });
+
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userName = '';
+
+        const introSection = document.getElementById('intro-section');
+        const questionSection = document.getElementById('question-section');
+        const resultsSection = document.getElementById('results-section');
+        const nameInput = document.getElementById('nameInput');
+        const questionNumber = document.getElementById('question-number');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const finalScore = document.getElementById('final-score');
+        const scoreComment = document.getElementById('score-comment');
+
+        function startQuiz() {
+            userName = nameInput.value.trim();
+            if (userName === '') {
+                showTemporaryMessage("Please tell me your name first!", 2000, 'error');
+                return;
+            }
+            introSection.classList.add('hidden');
+            questionSection.classList.remove('hidden');
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            if (currentQuestionIndex < quizData.questions.length) {
+                const currentQuestion = quizData.questions[currentQuestionIndex];
+                questionNumber.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.questions.length}`;
+                questionText.textContent = currentQuestion.question;
+                optionsContainer.innerHTML = ''; 
+
+                currentQuestion.answerOptions.forEach((optionData, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = optionData.text;
+                    button.classList.add('option-button');
+                    // Pass the isCorrect property directly
+                    button.addEventListener('click', () => checkAnswer(optionData.isCorrect, button));
+                    optionsContainer.appendChild(button);
+                });
+            } else {
+                showResults();
+            }
+        }
+
+        function checkAnswer(isCorrect, clickedButton) {
+            Array.from(optionsContainer.children).forEach(button => button.disabled = true);
+
+            if (isCorrect) {
+                score++;
+                clickedButton.classList.add('correct');
+                showTemporaryMessage("🌟 Correct! Awesome! 🌟", 1000, 'success');
+            } else {
+                clickedButton.classList.add('incorrect');
+                showTemporaryMessage("😅 Not quite, keep trying! 😅", 1000, 'error');
+            }
+            
+            currentQuestionIndex++;
+            setTimeout(() => {
+                displayQuestion();
+            }, 1200);
+        }
+        
+        function skipQuestion() {
+            showTemporaryMessage("⏭️ Question Skipped! ⏭️", 1000, 'info');
+            Array.from(optionsContainer.children).forEach(button => button.disabled = true);
+            currentQuestionIndex++;
+            setTimeout(() => {
+                displayQuestion();
+            }, 1200);
+        }
+
+        function showResults() {
+            questionSection.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            
+            const totalQuestions = quizData.questions.length;
+            const percentage = (score / totalQuestions) * 100;
+            finalScore.textContent = `${percentage.toFixed(0)}%`;
+            
+            let comment = '';
+            if (percentage >= 90) {
+                comment = `Absolutely sensational, ${userName}! You're a true Science Whiz! 🎉`;
+            } else if (percentage >= 70) {
+                comment = `Fantastic job, ${userName}! You're a brilliant Science Explorer! Keep shining! ✨`;
+            } else if (percentage >= 50) {
+                comment = `Well done, ${userName}! You're on the right track! A little more science fun and you'll be a pro! 👍`;
+            } else {
+                comment = `Great effort, ${userName}! Every try makes you smarter! Let's review and explore more science, you can do it! 💪`;
+            }
+            scoreComment.textContent = comment;
+        }
+
+        // --- Custom Message Box ---
+        function showTemporaryMessage(message, duration, type) {
+            let messageBox = document.getElementById('message-box');
+            if (!messageBox) {
+                messageBox = document.createElement('div');
+                messageBox.id = 'message-box';
+                document.body.appendChild(messageBox);
+            }
+            messageBox.textContent = message;
+            messageBox.className = 'message-box show ' + type;
+
+            messageBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px 30px;
+                border-radius: 15px;
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #fff;
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            `;
+            if (type === 'success') {
+                messageBox.style.backgroundColor = '#4CAF50';
+            } else if (type === 'error') {
+                messageBox.style.backgroundColor = '#F44336'; 
+            } else if (type === 'info') {
+                 messageBox.style.backgroundColor = '#9C27B0'; /* Use a color from the new palette */
+            }
+            
+            setTimeout(() => {
+                messageBox.style.opacity = 1;
+            }, 50);
+
+            setTimeout(() => {
+                messageBox.style.opacity = 0;
+                setTimeout(() => {
+                    messageBox.remove();
+                }, 500);
+            }, duration);
+        }
+
+    </script>
+
+</body>
+</html>
