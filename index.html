@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 Science Quest: Systems, Ecosystems & Forces! ✨</title>
+    <title>🌟 Science Fun Quiz: Earth, Water & Plants! 🌿</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #9C27B0; /* Deep Purple */
-            --secondary-color: #FFEE58; /* Bright Yellow */
-            --accent-color: #673AB7; /* Darker Purple */
+            --primary-color: #00BCD4; /* Cyan - Energetic Blue */
+            --secondary-color: #FFEB3B; /* Yellow - Sunny & Bright */
+            --accent-color: #FF9800; /* Orange - Playful */
             --text-color: #333;
-            --background-color: #F3E5F5; /* Light Purple Background */
+            --background-color: #E0F7FA; /* Light Aqua Background */
             --card-background: #FFFFFF;
-            --button-hover: #5E35B1; /* Even Darker Purple */
+            --button-hover: #00ACC1; /* Darker Cyan */
             --button-shadow: rgba(0, 0, 0, 0.2);
             --correct-glow: #4CAF50; /* Green for Correct */
             --incorrect-glow: #F44336; /* Red for Incorrect */
@@ -21,7 +21,7 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, var(--background-color) 0%, #D1C4E9 100%);
+            background: linear-gradient(135deg, var(--background-color) 0%, #B2EBF2 100%);
             color: var(--text-color);
             display: flex;
             justify-content: center;
@@ -30,7 +30,7 @@
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         .quiz-container {
@@ -39,12 +39,12 @@
             border-radius: 30px;
             box-shadow: 0 15px 30px var(--button-shadow);
             width: 100%;
-            max-width: 800px;
+            max-width: 800px; /* Slightly wider for more space */
             text-align: center;
             transition: all 0.5s ease-in-out;
             transform-origin: center;
-            border: 6px solid var(--primary-color);
-            position: relative;
+            border: 6px solid var(--primary-color); /* Thicker border */
+            position: relative; /* For floating elements */
             overflow: hidden;
         }
 
@@ -56,9 +56,9 @@
             opacity: 0;
             animation: floatAndFade 15s infinite ease-in-out;
         }
-        .shape.s1 { width: 50px; height: 50px; top: 10%; left: 5%; animation-delay: 0s; background-color: rgba(156, 39, 176, 0.2); }
+        .shape.s1 { width: 50px; height: 50px; top: 10%; left: 5%; animation-delay: 0s; background-color: rgba(0, 188, 212, 0.2); }
         .shape.s2 { width: 70px; height: 70px; top: 30%; right: 10%; animation-delay: 3s; background-color: rgba(255, 235, 59, 0.2); }
-        .shape.s3 { width: 40px; height: 40px; bottom: 20%; left: 15%; animation-delay: 6s; background-color: rgba(103, 58, 183, 0.2); }
+        .shape.s3 { width: 40px; height: 40px; bottom: 20%; left: 15%; animation-delay: 6s; background-color: rgba(255, 152, 0, 0.2); }
         .shape.s4 { width: 60px; height: 60px; top: 20%; left: 40%; animation-delay: 9s; background-color: rgba(76, 175, 80, 0.2); }
 
         @keyframes floatAndFade {
@@ -68,27 +68,28 @@
             100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
         }
 
+
         h1 {
-            font-family: 'Bangers', cursive;
+            font-family: 'Bangers', cursive; /* Fun, comic-style font */
             color: var(--primary-color);
-            font-size: 4em;
+            font-size: 4em; /* Even larger heading */
             margin-bottom: 15px;
-            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1); /* Comic-like shadow */
             letter-spacing: 2px;
         }
 
         h2 {
             font-family: 'Bangers', cursive;
             color: var(--accent-color);
-            font-size: 2.5em;
+            font-size: 2.5em; /* Larger sub-heading */
             margin-bottom: 25px;
             text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.05);
         }
 
         .intro, .question-container, .results {
-            animation: fadeInScale 0.8s forwards;
+            animation: fadeInScale 0.8s forwards; /* New entry animation */
             padding: 20px;
-            position: relative;
+            position: relative; /* Ensure shapes stay behind content */
             z-index: 1;
         }
 
@@ -106,14 +107,14 @@
         }
 
         .input-group label {
-            font-size: 1.5em;
+            font-size: 1.5em; /* Larger label */
             margin-bottom: 12px;
             color: var(--text-color);
             font-weight: bold;
         }
 
         .input-group input {
-            padding: 16px;
+            padding: 16px; /* Larger padding */
             font-size: 1.3em;
             border: 3px solid #ddd;
             border-radius: 15px;
@@ -127,24 +128,24 @@
         .input-group input:focus {
             outline: none;
             border-color: var(--accent-color);
-            box-shadow: 0 0 15px rgba(103, 58, 183, 0.6);
+            box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
         }
 
         .quiz-button {
-            padding: 20px 40px;
-            font-size: 1.4em;
+            padding: 20px 40px; /* Larger buttons */
+            font-size: 1.4em; /* Larger text */
             font-weight: bold;
             color: #fff;
             background-color: var(--accent-color);
             border: none;
-            border-radius: 35px;
+            border-radius: 35px; /* More rounded */
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
             margin: 10px;
-            box-shadow: 0 8px 15px var(--button-shadow);
+            box-shadow: 0 8px 15px var(--button-shadow); /* Bigger shadow */
             position: relative;
             overflow: hidden;
-            text-transform: uppercase;
+            text-transform: uppercase; /* Make it pop */
         }
         
         .quiz-button:before {
@@ -166,42 +167,42 @@
 
         .quiz-button:hover {
             background-color: var(--button-hover);
-            transform: translateY(-5px) scale(1.03);
+            transform: translateY(-5px) scale(1.03); /* More pronounced lift */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .question-text {
             font-family: 'Open Sans', sans-serif;
-            font-size: 2em;
+            font-size: 2em; /* Even larger question text */
             margin-bottom: 40px;
-            min-height: 150px;
+            min-height: 150px; /* More space for text */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-color: var(--secondary-color);
-            color: #616161;
+            background-color: var(--secondary-color); /* Bright Yellow */
+            color: #616161; /* Darker text for contrast */
             padding: 30px;
             border-radius: 25px;
             box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: 4px dashed var(--primary-color);
+            border: 4px dashed var(--primary-color); /* Thicker dashed border */
             font-weight: bold;
             line-height: 1.4;
         }
 
         .options {
             display: grid;
-            gap: 25px;
+            gap: 25px; /* More space between options */
             margin-bottom: 30px;
         }
 
         .option-button {
-            background-color: #F8F4FF; /* Lightest Purple for options */
+            background-color: #E0F2F7; /* Lighter Blue for options */
             color: var(--text-color);
-            border: 3px solid var(--primary-color);
-            font-size: 1.3em;
+            border: 3px solid var(--primary-color); /* Primary color border */
+            font-size: 1.3em; /* Larger option text */
             padding: 20px;
-            border-radius: 30px;
+            border-radius: 30px; /* Very rounded */
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s, border-color 0.3s, box-shadow 0.3s;
             font-weight: bold;
@@ -209,7 +210,7 @@
         }
 
         .option-button:hover {
-            background-color: #E1BEE7; /* Hover effect */
+            background-color: #B2EBF2; /* Hover effect */
             transform: scale(1.02);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
@@ -247,7 +248,7 @@
         
         .result-score {
             font-family: 'Bangers', cursive;
-            font-size: 5em;
+            font-size: 5em; /* Massive score display */
             font-weight: bold;
             color: var(--primary-color);
             margin-bottom: 20px;
@@ -256,7 +257,7 @@
         }
         
         .result-comment {
-            font-size: 2em;
+            font-size: 2em; /* Larger comment */
             color: var(--text-color);
             font-weight: bold;
             min-height: 80px;
@@ -349,13 +350,13 @@
 
         <!-- Intro Section -->
         <div class="intro" id="intro-section">
-            <h1>🚀 Science Quest: Systems, Ecosystems & Forces! ✨</h1>
-            <h2>Let's explore amazing systems and energies around us!</h2>
+            <h1>🌟 Science Fun Quiz! 🌿</h1>
+            <h2>Let's explore Earth, Water & Plants!</h2>
             <div class="input-group">
-                <label for="nameInput">What's your brilliant name, Young Scientist?</label>
-                <input type="text" id="nameInput" placeholder="Your Genius Name">
+                <label for="nameInput">What's your awesome name, Science Explorer?</label>
+                <input type="text" id="nameInput" placeholder="Your Super Name">
             </div>
-            <button class="quiz-button" onclick="startQuiz()">🔬 Embark on My Quest!</button>
+            <button class="quiz-button" onclick="startQuiz()">🚀 Start My Science Adventure!</button>
         </div>
 
         <!-- Question Section -->
@@ -368,11 +369,11 @@
 
         <!-- Results Section -->
         <div class="results hidden" id="results-section">
-            <h2>🎉 Quest Complete! 🎉</h2>
+            <h2>🎉 Quiz Completed! 🎉</h2>
             <p>Your Score:</p>
             <div class="result-score" id="final-score"></div>
             <p class="result-comment" id="score-comment"></p>
-            <button class="quiz-button" onclick="window.location.reload()">🔄 Start Another Quest!</button>
+            <button class="quiz-button" onclick="window.location.reload()">🔄 Play Again!</button>
         </div>
     </div>
 
@@ -388,523 +389,411 @@
         const quizData = {
             "questions": [
                 {
-                    "question": "When you eat a tasty mango, which organ in your digestive system first helps to break it into smaller pieces?",
+                    "question": "Imagine the Earth spinning like a top. What cycle does this movement cause?",
                     "answerOptions": [
-                        {"text": "The stomach.", "isCorrect": false},
-                        {"text": "The mouth (with teeth and saliva).", "isCorrect": true},
-                        {"text": "The small intestine.", "isCorrect": false}
+                        {"text": "The seasons changing.", "isCorrect": false},
+                        {"text": "Day and night.", "isCorrect": true},
+                        {"text": "The ocean tides.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "After food leaves your mouth, it travels down a tube to your stomach. What is this tube called?",
+                    "question": "When you wake up in the morning, the sun is rising. Which Earth movement causes this?",
                     "answerOptions": [
-                        {"text": "The windpipe.", "isCorrect": false},
-                        {"text": "The esophagus.", "isCorrect": true},
-                        {"text": "The large intestine.", "isCorrect": false}
+                        {"text": "Earth revolving around the Sun.", "isCorrect": false},
+                        {"text": "Earth rotating on its axis.", "isCorrect": true},
+                        {"text": "The Moon orbiting Earth.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "In the solar system, what is the largest star that all planets orbit around?",
+                    "question": "During the day, the sky is bright because of light from the Sun. What happens to the sky at night?",
+                    "answerOptions": [
+                        {"text": "The Sun shines brighter from far away.", "isCorrect": false},
+                        {"text": "The part of Earth you are on turns away from the Sun.", "isCorrect": true},
+                        {"text": "Clouds block the Sun completely.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "After it rains, puddles slowly disappear. What water cycle process is making the water vanish into the air?",
+                    "answerOptions": [
+                        {"text": "Condensation.", "isCorrect": false},
+                        {"text": "Evaporation.", "isCorrect": true},
+                        {"text": "Precipitation.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "You see tiny water droplets forming on the outside of a cold glass of water on a hot day. What water cycle process is this?",
+                    "answerOptions": [
+                        {"text": "Evaporation.", "isCorrect": false},
+                        {"text": "Condensation.", "isCorrect": true},
+                        {"text": "Transpiration.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Rain, snow, or hail falling from the sky is an example of which water cycle process?",
+                    "answerOptions": [
+                        {"text": "Evaporation.", "isCorrect": false},
+                        {"text": "Condensation.", "isCorrect": false},
+                        {"text": "Precipitation.", "isCorrect": true}
+                    ]
+                },
+                {
+                    "question": "Your grandmother collects rainwater in a big barrel. This rainwater is a natural source of...",
+                    "answerOptions": [
+                        {"text": "Salty water.", "isCorrect": false},
+                        {"text": "Fresh water.", "isCorrect": true},
+                        {"text": "Dirty water.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Before drinking water from a river, what is a simple way to make it safe?",
+                    "answerOptions": [
+                        {"text": "Add sugar to it.", "isCorrect": false},
+                        {"text": "Boil it for several minutes.", "isCorrect": true},
+                        {"text": "Shake it very hard.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which part of a plant takes in water and nutrients from the soil?",
+                    "answerOptions": [
+                        {"text": "The flower.", "isCorrect": false},
+                        {"text": "The roots.", "isCorrect": true},
+                        {"text": "The leaves.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "A tiny seed is planted in moist soil. What is the first step when it starts to grow into a new plant?",
+                    "answerOptions": [
+                        {"text": "It grows flowers.", "isCorrect": false},
+                        {"text": "It germinates (starts to sprout).", "isCorrect": true},
+                        {"text": "It produces fruits.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Why is the Sun important for plants?",
+                    "answerOptions": [
+                        {"text": "It helps them sleep.", "isCorrect": false},
+                        {"text": "It provides light for them to make their own food (photosynthesis).", "isCorrect": true},
+                        {"text": "It makes them feel warm.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "You observe clouds forming in the sky. Which water cycle process is causing this?",
+                    "answerOptions": [
+                        {"text": "Evaporation.", "isCorrect": false},
+                        {"text": "Condensation.", "isCorrect": true},
+                        {"text": "Runoff.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When you sweat on a hot day, and the sweat disappears, it's like which water cycle process?",
+                    "answerOptions": [
+                        {"text": "Precipitation.", "isCorrect": false},
+                        {"text": "Evaporation.", "isCorrect": true},
+                        {"text": "Infiltration.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "The long-term movement of Earth around the Sun causes...",
+                    "answerOptions": [
+                        {"text": "Day and night.", "isCorrect": false},
+                        {"text": "The different seasons (like wet and dry seasons).", "isCorrect": true},
+                        {"text": "The wind to blow.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What part of a plant helps it to stand upright and carries water to the leaves?",
+                    "answerOptions": [
+                        {"text": "The roots.", "isCorrect": false},
+                        {"text": "The stem.", "isCorrect": true},
+                        {"text": "The flower.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "You see a plant's leaves turning yellow and wilting. Which plant part is likely not getting enough water?",
+                    "answerOptions": [
+                        {"text": "The flower.", "isCorrect": false},
+                        {"text": "The roots.", "isCorrect": true},
+                        {"text": "The fruit.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which of these is a natural source of water, usually found underground?",
+                    "answerOptions": [
+                        {"text": "A tap in your kitchen.", "isCorrect": false},
+                        {"text": "A well or borehole.", "isCorrect": true},
+                        {"text": "A swimming pool.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you are camping and need to make river water safe to drink, besides boiling, what else could you do?",
+                    "answerOptions": [
+                        {"text": "Stir it with a stick.", "isCorrect": false},
+                        {"text": "Filter it through a clean cloth and then boil it.", "isCorrect": true},
+                        {"text": "Add a lot of salt.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What process is it when plants release water vapor from their leaves into the air?",
+                    "answerOptions": [
+                        {"text": "Evaporation.", "isCorrect": false},
+                        {"text": "Transpiration.", "isCorrect": true},
+                        {"text": "Condensation.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Imagine you are trying to grow beans. What important thing do bean seeds need to germinate?",
+                    "answerOptions": [
+                        {"text": "A lot of noise.", "isCorrect": false},
+                        {"text": "Warmth and moisture.", "isCorrect": true},
+                        {"text": "Darkness only.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "The continuous movement of water from the Earth's surface to the atmosphere and back is called the...",
+                    "answerOptions": [
+                        {"text": "Rain cycle.", "isCorrect": false},
+                        {"text": "Water cycle (or hydrological cycle).", "isCorrect": true},
+                        {"text": "Cloud cycle.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Why do plants have leaves?",
+                    "answerOptions": [
+                        {"text": "To make shade.", "isCorrect": false},
+                        {"text": "To absorb sunlight and make food for the plant.", "isCorrect": true},
+                        {"text": "To catch rain.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "When is the Moon usually visible in the night sky?",
+                    "answerOptions": [
+                        {"text": "Only when it's raining.", "isCorrect": false},
+                        {"text": "When the Earth has rotated to face away from the Sun and the Moon is reflecting sunlight.", "isCorrect": true},
+                        {"text": "When the Sun is very bright.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "You want to grow tomatoes from seeds. Besides good soil, what else is crucial for the seeds to sprout?",
+                    "answerOptions": [
+                        {"text": "A lot of wind.", "isCorrect": false},
+                        {"text": "Water and warmth.", "isCorrect": true},
+                        {"text": "Total darkness.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Which of these is a part of a plant that helps it reproduce?",
+                    "answerOptions": [
+                        {"text": "The stem.", "isCorrect": false},
+                        {"text": "The flower (produces seeds).", "isCorrect": true},
+                        {"text": "The root.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Sometimes, when you climb a tall mountain, you see clouds lower than you. What process made these clouds?",
+                    "answerOptions": [
+                        {"text": "Evaporation of the mountain.", "isCorrect": false},
+                        {"text": "Condensation of water vapor into tiny droplets.", "isCorrect": true},
+                        {"text": "Heavy rainfall starting.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "If you leave a wet sponge outside on a sunny day, it becomes dry. This is mainly due to...",
+                    "answerOptions": [
+                        {"text": "Precipitation.", "isCorrect": false},
+                        {"text": "Evaporation.", "isCorrect": true},
+                        {"text": "Condensation.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the main reason we experience different lengths of day and night throughout the year in some parts of the world?",
+                    "answerOptions": [
+                        {"text": "The Moon's phases.", "isCorrect": false},
+                        {"text": "The tilt of Earth's axis as it revolves around the Sun.", "isCorrect": true},
+                        {"text": "The number of clouds in the sky.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "What is the function of the fruit on a plant?",
+                    "answerOptions": [
+                        {"text": "To make the plant look pretty.", "isCorrect": false},
+                        {"text": "To protect the seeds and help in their dispersal.", "isCorrect": true},
+                        {"text": "To absorb sunlight.", "isCorrect": false}
+                    ]
+                },
+                {
+                    "question": "Where does the energy for the water cycle primarily come from?",
                     "answerOptions": [
                         {"text": "The Moon.", "isCorrect": false},
                         {"text": "The Sun.", "isCorrect": true},
-                        {"text": "Jupiter.", "isCorrect": false}
+                        {"text": "The wind.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Imagine a pond with fish, frogs, plants, and water. What is this natural community called?",
+                    "question": "Which part of a plant anchors it firmly in the ground?",
                     "answerOptions": [
-                        {"text": "A desert.", "isCorrect": false},
-                        {"text": "An ecosystem.", "isCorrect": true},
-                        {"text": "A city.", "isCorrect": false}
+                        {"text": "The leaves.", "isCorrect": false},
+                        {"text": "The roots.", "isCorrect": true},
+                        {"text": "The flower.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "When you boil water, what happens to its state as it gets hotter and hotter?",
+                    "question": "Imagine you hang wet clothes outside. They dry because water turns into vapor. This is...",
                     "answerOptions": [
-                        {"text": "It turns into ice.", "isCorrect": false},
-                        {"text": "It changes from liquid to gas (steam).", "isCorrect": true},
-                        {"text": "It becomes thicker.", "isCorrect": false}
+                        {"text": "Condensation.", "isCorrect": false},
+                        {"text": "Evaporation.", "isCorrect": true},
+                        {"text": "Runoff.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Why is it important to switch off lights when you leave a room?",
+                    "question": "Which of these is a human-made source of water?",
                     "answerOptions": [
-                        {"text": "To make the room dark.", "isCorrect": false},
-                        {"text": "To conserve electricity and save energy.", "isCorrect": true},
-                        {"text": "To make the light bulb last longer.", "isCorrect": false}
+                        {"text": "A river.", "isCorrect": false},
+                        {"text": "A dam or reservoir.", "isCorrect": true},
+                        {"text": "A natural spring.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Which basic electronic component provides power to a device, like a flashlight?",
+                    "question": "What do seeds need to germinate that makes them swell up and their protective coat soften?",
                     "answerOptions": [
-                        {"text": "A wire.", "isCorrect": false},
-                        {"text": "A battery.", "isCorrect": true},
-                        {"text": "A switch.", "isCorrect": false}
+                        {"text": "Sugar.", "isCorrect": false},
+                        {"text": "Water.", "isCorrect": true},
+                        {"text": "Darkness.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "When you stretch a rubber band, what type of force are you applying?",
+                    "question": "How can you tell if a seed has started to germinate?",
                     "answerOptions": [
-                        {"text": "Compressional force.", "isCorrect": false},
-                        {"text": "Elastic force.", "isCorrect": true},
-                        {"text": "Pushing force.", "isCorrect": false}
+                        {"text": "It turns blue.", "isCorrect": false},
+                        {"text": "A tiny root (radicle) and shoot (plumule) start to emerge.", "isCorrect": true},
+                        {"text": "It becomes very hard.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Which planet is known as the 'Red Planet' and is next after Earth in the solar system?",
+                    "question": "The Earth orbiting the Sun in a nearly circular path is called...",
                     "answerOptions": [
-                        {"text": "Venus.", "isCorrect": false},
-                        {"text": "Mars.", "isCorrect": true},
-                        {"text": "Jupiter.", "isCorrect": false}
+                        {"text": "Rotation.", "isCorrect": false},
+                        {"text": "Revolution.", "isCorrect": true},
+                        {"text": "Spinning.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "In an ecosystem, what do plants do to help animals survive?",
+                    "question": "Which part of the plant helps it to breathe, taking in carbon dioxide and releasing oxygen?",
                     "answerOptions": [
-                        {"text": "They eat the animals.", "isCorrect": false},
-                        {"text": "They provide food and oxygen.", "isCorrect": true},
-                        {"text": "They hide from animals.", "isCorrect": false}
+                        {"text": "The roots.", "isCorrect": false},
+                        {"text": "The leaves.", "isCorrect": true},
+                        {"text": "The stem.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "When ice cream melts on a hot day, what change of state is occurring?",
+                    "question": "Why is it important to conserve water?",
                     "answerOptions": [
-                        {"text": "Solid to gas.", "isCorrect": false},
-                        {"text": "Solid to liquid.", "isCorrect": true},
-                        {"text": "Liquid to solid.", "isCorrect": false}
+                        {"text": "To make less rain.", "isCorrect": false},
+                        {"text": "To ensure there is enough clean water for everyone and for future generations.", "isCorrect": true},
+                        {"text": "To make rivers dry.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "What is the primary function of the stomach in the digestive system?",
+                    "question": "What happens after evaporation in the water cycle?",
                     "answerOptions": [
-                        {"text": "To absorb water.", "isCorrect": false},
-                        {"text": "To mix food with strong digestive juices to break it down further.", "isCorrect": true},
-                        {"text": "To make food taste good.", "isCorrect": false}
+                        {"text": "Water goes back into the ground.", "isCorrect": false},
+                        {"text": "Water vapor rises and cools to form clouds (condensation).", "isCorrect": true},
+                        {"text": "Plants drink all the water.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Why is the Sun so important to Earth's ecosystem?",
+                    "question": "If you see steam coming from a boiling pot of water, that steam is an example of...",
                     "answerOptions": [
-                        {"text": "It makes the moon shine.", "isCorrect": false},
-                        {"text": "It provides light and heat, which are essential for life and the water cycle.", "isCorrect": true},
-                        {"text": "It controls the wind.", "isCorrect": false}
+                        {"text": "Liquid water.", "isCorrect": false},
+                        {"text": "Water vapor (gas).", "isCorrect": true},
+                        {"text": "Ice.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "If you squeeze a sponge and water comes out, what type of force are you using?",
+                    "question": "How long does it take for the Earth to complete one full rotation on its axis?",
                     "answerOptions": [
-                        {"text": "Elastic force.", "isCorrect": false},
-                        {"text": "Compressional force.", "isCorrect": true},
-                        {"text": "Pulling force.", "isCorrect": false}
+                        {"text": "One year.", "isCorrect": false},
+                        {"text": "About 24 hours (one day).", "isCorrect": true},
+                        {"text": "One month.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Which part of the digestive system absorbs most of the useful nutrients from digested food into the bloodstream?",
+                    "question": "The tiny seed leaves that emerge from a germinating seed and provide food to the young plant are called...",
                     "answerOptions": [
-                        {"text": "The large intestine.", "isCorrect": false},
-                        {"text": "The small intestine.", "isCorrect": true},
-                        {"text": "The esophagus.", "isCorrect": false}
+                        {"text": "True leaves.", "isCorrect": false},
+                        {"text": "Cotyledons.", "isCorrect": true},
+                        {"text": "Flower petals.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "What is the correct order of the first four planets from the Sun?",
+                    "question": "Which of these is NOT a natural source of fresh water?",
                     "answerOptions": [
-                        {"text": "Earth, Mars, Venus, Mercury.", "isCorrect": false},
-                        {"text": "Mercury, Venus, Earth, Mars.", "isCorrect": true},
-                        {"text": "Mars, Earth, Venus, Mercury.", "isCorrect": false}
+                        {"text": "Lakes.", "isCorrect": false},
+                        {"text": "The ocean.", "isCorrect": true},
+                        {"text": "Rivers.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "In a forest ecosystem, what would happen if all the trees were cut down?",
+                    "question": "What is the main job of a flower on a plant?",
                     "answerOptions": [
-                        {"text": "Animals would have more space.", "isCorrect": false},
-                        {"text": "Many animals would lose their homes and food, disrupting the ecosystem.", "isCorrect": true},
-                        {"text": "The air would become cleaner.", "isCorrect": false}
+                        {"text": "To make the plant smell good.", "isCorrect": false},
+                        {"text": "To attract pollinators and produce seeds for new plants.", "isCorrect": true},
+                        {"text": "To protect the roots.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "When water freezes in a bottle and breaks it, what change of state is happening to the water?",
+                    "question": "Why do we have different temperatures during the day and night?",
                     "answerOptions": [
-                        {"text": "Liquid to gas.", "isCorrect": false},
-                        {"text": "Liquid to solid.", "isCorrect": true},
-                        {"text": "Solid to liquid.", "isCorrect": false}
+                        {"text": "Because the Moon heats up the Earth at night.", "isCorrect": false},
+                        {"text": "The Sun's heat reaches us directly during the day, and the Earth cools at night when facing away from the Sun.", "isCorrect": true},
+                        {"text": "Clouds block the heat at night.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Which of these is a good way to save electricity at home?",
+                    "question": "Which water cycle process is observed when water runs over the land surface into rivers, lakes, and oceans?",
                     "answerOptions": [
-                        {"text": "Leaving the TV on all day.", "isCorrect": false},
-                        {"text": "Unplugging chargers when not in use.", "isCorrect": true},
-                        {"text": "Opening the fridge door for a long time.", "isCorrect": false}
+                        {"text": "Condensation.", "isCorrect": false},
+                        {"text": "Runoff.", "isCorrect": true},
+                        {"text": "Infiltration.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "A simple circuit uses wires to connect components. What is the main function of a wire in an electronic circuit?",
+                    "question": "What needs to happen for a seed to break its dormancy and begin to grow?",
                     "answerOptions": [
-                        {"text": "To store electricity.", "isCorrect": false},
-                        {"text": "To conduct (carry) electricity from one point to another.", "isCorrect": true},
-                        {"text": "To block electricity.", "isCorrect": false}
+                        {"text": "It needs to be very cold.", "isCorrect": false},
+                        {"text": "It needs the right conditions of water, temperature, and sometimes light.", "isCorrect": true},
+                        {"text": "It needs to be painted a new color.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "When you push a toy car, what type of force makes it move?",
+                    "question": "Why is the stem of a plant important for its leaves and flowers?",
                     "answerOptions": [
-                        {"text": "Elastic force.", "isCorrect": false},
-                        {"text": "Pushing force (a type of mechanical force).", "isCorrect": true},
-                        {"text": "Compressional force.", "isCorrect": false}
+                        {"text": "It holds them still in the wind.", "isCorrect": false},
+                        {"text": "It supports them and transports water and nutrients to them.", "isCorrect": true},
+                        {"text": "It makes them look pretty.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "What happens to the food that is not absorbed in the small intestine?",
-                    "answerOptions": [
-                        {"text": "It goes back to the mouth.", "isCorrect": false},
-                        {"text": "It moves to the large intestine to absorb water and form waste.", "isCorrect": true},
-                        {"text": "It disappears.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which planet is closest to the Sun?",
-                    "answerOptions": [
-                        {"text": "Earth.", "isCorrect": false},
-                        {"text": "Mercury.", "isCorrect": true},
-                        {"text": "Venus.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "In a food chain, what role does a grasshopper play if it eats grass?",
-                    "answerOptions": [
-                        {"text": "Producer.", "isCorrect": false},
-                        {"text": "Consumer.", "isCorrect": true},
-                        {"text": "Decomposer.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "If you leave a wet cloth in the sun, it dries. This is an example of heat causing...",
-                    "answerOptions": [
-                        {"text": "Freezing.", "isCorrect": false},
-                        {"text": "Evaporation (liquid to gas).", "isCorrect": true},
-                        {"text": "Melting.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which of these devices uses electricity to produce light?",
-                    "answerOptions": [
-                        {"text": "A wooden chair.", "isCorrect": false},
-                        {"text": "A light bulb.", "isCorrect": true},
-                        {"text": "A book.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "What is the function of a switch in an electronic circuit?",
-                    "answerOptions": [
-                        {"text": "To make a noise.", "isCorrect": false},
-                        {"text": "To open or close the circuit, controlling the flow of electricity.", "isCorrect": true},
-                        {"text": "To make the wires shiny.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When you jump on a trampoline, it stretches down and then pushes you up. This is an example of what kind of force?",
-                    "answerOptions": [
-                        {"text": "Compressional force.", "isCorrect": false},
-                        {"text": "Elastic force.", "isCorrect": true},
-                        {"text": "Gravity.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "What is the last part of the digestive system where solid waste leaves the body?",
-                    "answerOptions": [
-                        {"text": "The small intestine.", "isCorrect": false},
-                        {"text": "The anus.", "isCorrect": true},
-                        {"text": "The stomach.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which planet is known for its beautiful rings?",
-                    "answerOptions": [
-                        {"text": "Jupiter.", "isCorrect": false},
-                        {"text": "Saturn.", "isCorrect": true},
-                        {"text": "Neptune.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "In an ecosystem, what are organisms like fungi and bacteria that break down dead plants and animals called?",
-                    "answerOptions": [
-                        {"text": "Producers.", "isCorrect": false},
-                        {"text": "Consumers.", "isCorrect": false},
-                        {"text": "Decomposers.", "isCorrect": true}
-                    ]
-                },
-                {
-                    "question": "If you place a chocolate bar in a hot oven, it will turn into liquid. This change is caused by...",
-                    "answerOptions": [
-                        {"text": "Freezing.", "isCorrect": false},
-                        {"text": "Heat (melting).", "isCorrect": true},
-                        {"text": "Evaporation.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "How can you help conserve electricity at school?",
-                    "answerOptions": [
-                        {"text": "Leaving computers on overnight.", "isCorrect": false},
-                        {"text": "Turning off lights when leaving the classroom.", "isCorrect": true},
-                        {"text": "Drawing on the walls.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "A small light-emitting diode (LED) lights up when electricity passes through it. The LED is an example of what in electronics?",
-                    "answerOptions": [
-                        {"text": "A power source.", "isCorrect": false},
-                        {"text": "An output component (produces light).", "isCorrect": true},
-                        {"text": "A control component.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When you sit on a soft cushion, it gets flatter. This is an example of what kind of force?",
-                    "answerOptions": [
-                        {"text": "Elastic force.", "isCorrect": false},
-                        {"text": "Compressional force.", "isCorrect": true},
-                        {"text": "Pulling force.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "What is the function of saliva in the mouth during digestion?",
-                    "answerOptions": [
-                        {"text": "To make food hard.", "isCorrect": false},
-                        {"text": "To moisten food and begin breaking down starches.", "isCorrect": true},
-                        {"text": "To absorb nutrients.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which planet is known as the 'Giant Red Spot' and is the largest planet in our solar system?",
-                    "answerOptions": [
-                        {"text": "Saturn.", "isCorrect": false},
-                        {"text": "Jupiter.", "isCorrect": true},
-                        {"text": "Uranus.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "In an ecosystem, how do animals like bees help plants?",
-                    "answerOptions": [
-                        {"text": "By eating the plants.", "isCorrect": false},
-                        {"text": "By pollinating them, helping them make seeds.", "isCorrect": true},
-                        {"text": "By building nests on them.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "If you leave a glass of water outside on a very cold night, and it turns into ice, this is a change from...",
-                    "answerOptions": [
-                        {"text": "Gas to liquid.", "isCorrect": false},
-                        {"text": "Liquid to solid (freezing).", "isCorrect": true},
-                        {"text": "Solid to gas.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which of these uses a lot of electricity and should be used wisely?",
-                    "answerOptions": [
-                        {"text": "A hand fan.", "isCorrect": false},
-                        {"text": "An air conditioner.", "isCorrect": true},
-                        {"text": "A book.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "A small resistor in an electronic circuit changes electrical energy into heat. What is its main function?",
-                    "answerOptions": [
-                        {"text": "To amplify signals.", "isCorrect": false},
-                        {"text": "To limit the flow of current.", "isCorrect": true},
-                        {"text": "To generate light.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When you bounce a ball, the force that makes it come back to your hand is an example of a force that makes things...",
-                    "answerOptions": [
-                        {"text": "Melt.", "isCorrect": false},
-                        {"text": "Move and change direction.", "isCorrect": true},
-                        {"text": "Freeze.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "What happens in the large intestine?",
-                    "answerOptions": [
-                        {"text": "Most nutrients are absorbed.", "isCorrect": false},
-                        {"text": "Water is absorbed from undigested food, forming solid waste.", "isCorrect": true},
-                        {"text": "Food is chewed.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which planet is known for its beautiful blue color due to methane gas in its atmosphere?",
-                    "answerOptions": [
-                        {"text": "Mars.", "isCorrect": false},
-                        {"text": "Neptune.", "isCorrect": true},
-                        {"text": "Jupiter.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "In an ecosystem, what do you call the green plants that make their own food?",
-                    "answerOptions": [
-                        {"text": "Consumers.", "isCorrect": false},
-                        {"text": "Producers.", "isCorrect": true},
-                        {"text": "Decomposers.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When a hot substance cools down, its particles lose energy, and it might change from gas to liquid, or liquid to solid. This is called...",
+                    "question": "Imagine water sinking into the ground. What is this water cycle process called?",
                     "answerOptions": [
                         {"text": "Evaporation.", "isCorrect": false},
-                        {"text": "Cooling or solidification.", "isCorrect": true},
-                        {"text": "Boiling.", "isCorrect": false}
+                        {"text": "Infiltration.", "isCorrect": true},
+                        {"text": "Precipitation.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "What is the main role of the Sun in the solar system?",
+                    "question": "What is the main source of light and heat for Earth?",
                     "answerOptions": [
-                        {"text": "To make the Earth spin.", "isCorrect": false},
-                        {"text": "To provide light and heat, and its gravity keeps planets in orbit.", "isCorrect": true},
-                        {"text": "To control the Moon.", "isCorrect": false}
+                        {"text": "The Moon.", "isCorrect": false},
+                        {"text": "The Sun.", "isCorrect": true},
+                        {"text": "Stars.", "isCorrect": false}
                     ]
                 },
                 {
-                    "question": "Which part of the digestive system is a long, muscular tube that connects the mouth to the stomach?",
+                    "question": "If you see a plant that looks very short and has only two small leaves, it is likely a plant that has just...",
                     "answerOptions": [
-                        {"text": "The windpipe.", "isCorrect": false},
-                        {"text": "The esophagus.", "isCorrect": true},
-                        {"text": "The small intestine.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "If you are designing a simple electronic device, what component is used to turn it on or off?",
-                    "answerOptions": [
-                        {"text": "A battery.", "isCorrect": false},
-                        {"text": "A switch.", "isCorrect": true},
-                        {"text": "A wire.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When you sit on a spring, it compresses. This is an example of...",
-                    "answerOptions": [
-                        {"text": "Elastic force.", "isCorrect": false},
-                        {"text": "Compressional force.", "isCorrect": true},
-                        {"text": "Pulling force.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "The process of food being chewed in the mouth and mixed with saliva is called...",
-                    "answerOptions": [
-                        {"text": "Swallowing.", "isCorrect": false},
-                        {"text": "Digestion (starting in the mouth).", "isCorrect": true},
-                        {"text": "Absorption.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which planet is closest to Earth and is sometimes called Earth's 'sister planet'?",
-                    "answerOptions": [
-                        {"text": "Mars.", "isCorrect": false},
-                        {"text": "Venus.", "isCorrect": true},
-                        {"text": "Mercury.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "In an ecosystem, if animals eat plants, what are these animals called?",
-                    "answerOptions": [
-                        {"text": "Producers.", "isCorrect": false},
-                        {"text": "Consumers.", "isCorrect": true},
-                        {"text": "Decomposers.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "If you hold a metal spoon over a flame, it gets hot. This shows that heat can...",
-                    "answerOptions": [
-                        {"text": "Make things freeze.", "isCorrect": false},
-                        {"text": "Transfer through materials (conduction).", "isCorrect": true},
-                        {"text": "Make things disappear.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Why is it important to turn off electronic devices like TVs and video game consoles when you're not using them?",
-                    "answerOptions": [
-                        {"text": "To make them quiet.", "isCorrect": false},
-                        {"text": "To save electricity and prolong their lifespan.", "isCorrect": true},
-                        {"text": "To keep them warm.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "What is the function of a small motor in an electronic toy?",
-                    "answerOptions": [
-                        {"text": "To make it smell good.", "isCorrect": false},
-                        {"text": "To convert electrical energy into movement.", "isCorrect": true},
-                        {"text": "To make a loud noise.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When you pull a wagon, what type of force are you applying?",
-                    "answerOptions": [
-                        {"text": "Compressional force.", "isCorrect": false},
-                        {"text": "Pulling force (a type of mechanical force).", "isCorrect": true},
-                        {"text": "Elastic force.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "What happens to indigestible waste in the digestive system?",
-                    "answerOptions": [
-                        {"text": "It is absorbed into the blood.", "isCorrect": false},
-                        {"text": "It is stored temporarily in the rectum before being expelled from the body.", "isCorrect": true},
-                        {"text": "It stays in the stomach.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Besides the Sun, which other celestial bodies have gravity that pulls planets and other objects towards them?",
-                    "answerOptions": [
-                        {"text": "Only asteroids.", "isCorrect": false},
-                        {"text": "Planets themselves have gravity.", "isCorrect": true},
-                        {"text": "Only empty space.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "In an ecosystem, how does a lion depend on other animals?",
-                    "answerOptions": [
-                        {"text": "For shelter.", "isCorrect": false},
-                        {"text": "For food (by eating other animals).", "isCorrect": true},
-                        {"text": "For friendship.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "If you put a hot metal object into cold water, what happens to the heat energy?",
-                    "answerOptions": [
-                        {"text": "It disappears.", "isCorrect": false},
-                        {"text": "It transfers from the hot object to the cold water.", "isCorrect": true},
-                        {"text": "It stays in the hot object.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Why is it dangerous to play with electrical sockets or broken wires?",
-                    "answerOptions": [
-                        {"text": "It can make the lights flicker.", "isCorrect": false},
-                        {"text": "It can cause electric shock, which is very harmful.", "isCorrect": true},
-                        {"text": "It makes the house smell funny.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "Which basic electronic component allows electricity to flow in only one direction?",
-                    "answerOptions": [
-                        {"text": "A capacitor.", "isCorrect": false},
-                        {"text": "A diode.", "isCorrect": true},
-                        {"text": "A resistor.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "When you stretch a spring and then let it go, it returns to its original shape. This shows the property of...",
-                    "answerOptions": [
-                        {"text": "Plasticity.", "isCorrect": false},
-                        {"text": "Elasticity.", "isCorrect": true},
-                        {"text": "Brittleness.", "isCorrect": false}
-                    ]
-                },
-                {
-                    "question": "The journey of food through the body, from mouth to anus, is called the...",
-                    "answerOptions": [
-                        {"text": "Breathing process.", "isCorrect": false},
-                        {"text": "Digestive process.", "isCorrect": true},
-                        {"text": "Circulatory process.", "isCorrect": false}
+                        {"text": "Been picked.", "isCorrect": false},
+                        {"text": "Germinated and is a seedling.", "isCorrect": true},
+                        {"text": "Died.", "isCorrect": false}
                     ]
                 }
             ]
@@ -1040,7 +929,7 @@
             } else if (type === 'error') {
                 messageBox.style.backgroundColor = '#F44336'; 
             } else if (type === 'info') {
-                 messageBox.style.backgroundColor = '#9C27B0'; /* Use a color from the new palette */
+                 messageBox.style.backgroundColor = '#00BCD4'; /* Use a color from the new palette */
             }
             
             setTimeout(() => {
